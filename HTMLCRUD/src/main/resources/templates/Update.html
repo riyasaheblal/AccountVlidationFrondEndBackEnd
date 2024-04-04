@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container">
+  <h2>Vertical (basic) form</h2>
+  <form th:object="${bank}" th:action="@{/save}"method="POST">
+    <input type="hidden" th:field="*{id}" />
+    <div class="form-group">
+      <label >Bank Name:</label>
+      <input  class="form-control" th:field="*{bankName}" placeholder="Enter Your Bank Name" >
+    </div>
+    <div class="form-group">
+      <label>Bank Location:</label>
+      <input  class="form-control" th:field="*{location}" placeholder="Enter Your Bank Location">
+    </div>
+    <div class="form-group">
+      <label>IFSC Code:</label>
+      <input  class="form-control" th:field="*{IFSC}" placeholder="Enter Your IFSC Code">
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+    <hr>
+        <a th:href="@{/}"> Back to Employee List</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style>
+    body {
+        background-color: lightblue;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>Welcome Banks</h2>
+ <button><a th:href="@{/AddDetails}">Add Details</a></button> 
+  <button><a th:href="@{/Login}">Login</a></button> 
+ 
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Bank Name</th>
+        <th>Bank Location</th>
+        <th>IFSC Code</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="bank : ${BankList}">
+        <td th:text="${bank.id}"></td>
+        <td th:text="${bank.bankName}"></td>
+        <td th:text="${bank.location}"></td>
+        <td th:text="${bank.IFSC}"></td>
+       <td> <a th:href="@{/update/{id}(id=${bank.id})}" class="btn btn-primary">Update</a>
+             <a th:href="@{/delete/{id}(id=${bank.id})}" class="btn btn-danger">Delete</a>
+        </td> 
+        
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
