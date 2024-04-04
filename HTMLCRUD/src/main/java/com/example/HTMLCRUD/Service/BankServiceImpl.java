@@ -69,10 +69,10 @@ public class BankServiceImpl implements BankService {
 //	            "DECODE(TRIM(ACCOUNTVALIDSTATUS),'A','ACTIVE','C','CLOSE','N','NA',TRIM(ACCOUNTVALIDSTATUS)) ACCOUNTSTATUS, " +
 //	            "TO_CHAR(CREATEDDATE,'DD-MM-YYYY HH24:MI:SS') CREATEDDATE, QUICKRESPONSEMESSAGEID RESPONSEMESSAGEID " +
 //	            "FROM agencyaccountmaster " +
-//	            "WHERE REQUESTMESSAGEID = ?";
+//	            "WHERE REQUESTMESSAGEID = ? and ACCOUNTNUMBER = LPAD(TRIM(?), 17, '0') ";
 //
 //	    System.out.println(sql);
-//	    return jdbcTemplate.query(sql, new Object[]{reqfile}, (rs, rowNum) -> {
+//	    return jdbcTemplate.query(sql, new Object[]{reqfile,accountnumber}, (rs, rowNum) -> {
 //	        AgencyAccount account = new AgencyAccount();
 //	        account.setRequestMessageId(rs.getString("REQUESTMESSAGEID"));
 //	        account.setAccountNumber(rs.getString("ACCOUNTNUMBER"));
